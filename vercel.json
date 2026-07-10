@@ -2,9 +2,11 @@
   "trailingSlash": true,
   "redirects": [
     { "source": "/app", "destination": "/", "permanent": false },
-    { "source": "/app/(.*)", "destination": "/$1", "permanent": false }
+    { "source": "/app/(.*)", "destination": "/$1", "permanent": false },
+    { "source": "/adaptive-artist-v3.html.", "destination": "/adaptive-artist-v3.html", "permanent": false },
+    { "source": "/phone.html.", "destination": "/phone.html", "permanent": false }
   ],
   "rewrites": [
-    { "source": "/([^.]*)", "destination": "/index.html" }
+    { "source": "/((?!_expo/|assets/|static/).*)", "destination": "/index.html" }
   ]
 }
