@@ -9,8 +9,15 @@ Prototype for the CMU MHCI 2026 capstone with Amazon Music.
 
 ## Hosting note
 
-The web export ships its icon fonts under `app/assets/node_modules/…` — if you
-mirror this build into a repo whose `.gitignore` excludes `node_modules/`, add
-an exception for that path or every vector icon renders as a tofu box.
+The web export ships its icon fonts under `assets/node_modules/…`, and Vercel
+refuses to upload or serve any `node_modules` directory — so this repo renames
+that folder to `assets/vendor/` and patches the bundle references after each
+export. If you regenerate the export, repeat that step or every vector icon
+renders as a tofu box:
+
+```bash
+mv app/assets/node_modules app/assets/vendor
+sed -i '' 's|assets/node_modules/|assets/vendor/|g' app/_expo/static/js/web/entry-*.js
+```
 
 Source: [Amazon-Music-Adaptive-UI---DERBC](https://github.com/RabiatS/Amazon-Music-Adaptive-UI---DERBC). See `NOTICE` for attribution.
