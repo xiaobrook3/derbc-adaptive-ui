@@ -1,7 +1,10 @@
 {
   "trailingSlash": true,
+  "redirects": [
+    { "source": "/app", "destination": "/", "permanent": false },
+    { "source": "/app/(.*)", "destination": "/$1", "permanent": false }
+  ],
   "rewrites": [
-    { "source": "/app/([^.]*)", "destination": "/app/index.html" },
     { "source": "/([^.]*)", "destination": "/index.html" }
   ]
 }
